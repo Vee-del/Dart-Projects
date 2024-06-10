@@ -1,0 +1,70 @@
+import 'dart:io';
+
+// Define an interface
+abstract class Animal {
+  void makeSound();
+}
+
+// Define a class implementing the Animal interface
+class Dog implements Animal {
+  @override
+  void makeSound() {
+    print('Woof!');
+  }
+}
+
+// Define a parent class with a method that can be overridden
+class Vehicle {
+  void drive() {
+    print('Vehicle is being driven.');
+  }
+}
+
+// Define a subclass that overrides the drive method
+class Car extends Vehicle {
+  @override
+  void drive() {
+    print('Car is being driven.');
+  }
+}
+
+// Define a class with a constructor that initializes data from a file
+class Person {
+  late String name;
+  late int age;
+
+  Person(String name, int age) {
+    this.name = name;
+    this.age = age;
+  }
+
+  // Method to read data from a file and initialize the instance variables
+  factory Person.fromFile(String filename) {
+    List<String> data = File(filename).readAsStringSync().split(',');
+    return Person(data[0], int.parse(data[1]));
+  }
+}
+
+// Method demonstrating the use of a loop
+void printNumbers(int n) {
+  for (int i = 1; i <= n; i++) {
+    print(i);
+  }
+}
+
+void main() {
+  // Using class implementing an interface
+  Animal dog = Dog();
+  dog.makeSound(); // Output: Woof!
+
+  // Using class that overrides an inherited method
+  Vehicle car = Car();
+  car.drive(); // Output: Car is being driven.
+
+  // Using instance of a class initialized with data from a file
+  Person person = Person.fromFile('person_data.txt');
+  print('Name: ${person.name}, Age: ${person.age}');
+
+  // Using a method that demonstrates the use of a loop
+  printNumbers(5); // Output: 1 2 3 4 5
+}
