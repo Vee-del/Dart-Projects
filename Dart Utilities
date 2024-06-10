@@ -1,0 +1,75 @@
+int sum(int a, int b) {
+  return a + b;
+}
+
+void main() {
+  print(sum(5, 3)); // Output: 8
+}
+
+
+void main() {
+  for (int i = 1; i <= 10; i++) {
+    print(i);
+  }
+}
+
+
+void main() {
+  String fruit = 'apple';
+
+  switch (fruit) {
+    case 'apple':
+      print('It is an apple.');
+      break;
+    case 'banana':
+      print('It is a banana.');
+      break;
+    default:
+      print('Unknown fruit.');
+  }
+}
+
+
+void main() {
+  int i = 20;
+  while (i >= 10) {
+    print(i);
+    i--;
+  }
+}
+
+void checkEvenOrOdd(int number) {
+  if (number % 2 == 0) {
+    print('$number is even.');
+  } else {
+    print('$number is odd.');
+  }
+}
+
+void main() {
+  checkEvenOrOdd(7); // Output: 7 is odd.
+}
+
+int findLargest(List<int> numbers) {
+  int largest = numbers[0];
+  for (int i = 1; i < numbers.length; i++) {
+    if (numbers[i] > largest) {
+      largest = numbers[i];
+    }
+  }
+  return largest;
+}
+
+void main() {
+  List<int> numbers = [5, 2, 9, 15, 7];
+  print('Largest number: ${findLargest(numbers)}'); // Output: Largest number: 15
+}
+
+void main() {
+  try {
+    int result = 10 ~/ 0; // Division by zero will throw an exception
+    print('Result: $result');
+  } catch (e) {
+    print('Error occurred: $e'); // Output: Error occurred: IntegerDivisionByZeroException
+  }
+}
